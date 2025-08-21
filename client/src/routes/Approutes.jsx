@@ -15,13 +15,15 @@ import Product from '../pages/admin/Product.jsx'
 import Manage from '../pages/admin/Manage.jsx'
 import LayoutUser from '../layouts/LayoutUser.jsx'
 import HomeUser from '../pages/user/HomeUser.jsx'
+import ProtectRouteUser from './ProtectRouteUser.jsx'
+import ProtectRouteAdmin from './ProtectRouteAdmin.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
-      { index: true , element: <Home /> },
+      { index: true, element: <Home /> },
       { path: 'shop', element: <Shop /> },
       { path: 'cart', element: <Cart /> },
       { path: 'history', element: <History /> },
@@ -30,24 +32,27 @@ const router = createBrowserRouter([
       { path: 'register', element: <Register /> },
     ]
   },
-  {path:'/admin',
-    element: <LayoutAdmin/>,
-    children:[
-        {index: true, element: <Dashbord/>},
-        {path: 'category', element: <Category/>},
-        {path: 'product', element: <Product/>},
-        {path: 'manage', element: <Manage/>},
+  {
+    path: '/admin',
+    element: <ProtectRouteAdmin element={<LayoutAdmin />}/> ,
+    children: [
+      { index: true, element: <Dashbord /> },
+      { path: 'category', element: <Category /> },
+      { path: 'product', element: <Product /> },
+      { path: 'manage', element: <Manage /> },
     ]
-    
-    },
-  {path:'/user',
-    element: <LayoutUser/>,
-    children:[
-        {index: true, element: <HomeUser/>},
-       
+
+  },
+  {
+    path: '/user',
+    // element: <LayoutUser/>,
+    element: <ProtectRouteUser element={<LayoutUser/>} />,
+    children: [
+      { index: true, element: <HomeUser /> },
+
     ]
-    
-    },
+
+  },
 
 
 ])

@@ -1,7 +1,8 @@
 //rafce
-import React from 'react'
-
 import Approutes from './routes/Approutes'
+import React from 'react';
+
+import { ToastContainer} from 'react-toastify';
 
 const App = () => {
 
@@ -9,8 +10,9 @@ const App = () => {
 
   return (
     <>
-    <Approutes/>
-  
+      <ToastContainer />
+      <Approutes />
+
     </>
   )
 }
