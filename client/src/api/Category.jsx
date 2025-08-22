@@ -12,13 +12,9 @@ export const createCategory = async(token,form)=>{
 }
 
 
-export const listCategory = async(token)=>{
+export const listCategory = async()=>{
 
-    return axios.get('http://localhost:5000/api/category',{
-        headers:{
-            Authorization:`Bearer ${token}`
-        }
-    })
+    return axios.get('http://localhost:5000/api/category')
 
 }
 

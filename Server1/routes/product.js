@@ -12,7 +12,7 @@ router.post('/productby',listby)
 router.post('/search/filters',searchFilter)
 
 router.post('/images',authCheck,adminCheck, createImages)
-router.post('/removeimages/images', authCheck,adminCheck, removeImage)
+router.post('/removeimages', authCheck,adminCheck, removeImage)
 
 
 
